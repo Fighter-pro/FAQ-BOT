@@ -4,21 +4,23 @@ theme: /
 
     state: Start
         q!: $regex</start>
-        a: Начнём.
+        buttons:
+            {text: "Личный кабинет", url: "https://marketplace-admin.letoile.tech/claims/supply-requests/"}
+            {text: "Сайт LETU.RU", url: "https://www.letu.ru/product/l-kudri-naturalnyi-konditsioner-dlya-kudryavyh-volos-normalnyh-i-zhirnyh/124100598"}
+            "Дальше" -> /Step 1
+        a: Привет, меня зовут Тихон и я бот технической поддержки.
+        event: noMatch || toState = "./"
 
-    state: Hello
-        intent!: /привет
-        a: Привет привет
+    state: Step 1
+        event: noMatch || toState = "/NewState_2"
+        InputPhoneNumber: 
+            prompt = Просим указать Ваш номер телефона для связи.
+            varName = Mphone
+            html = 
+            htmlEnabled = false
+            failureMessage = [""]
+            failureMessageHtml = [""]
+            then = /Step 1_2
+            actions = {}
 
-    state: Bye
-        intent!: /пока
-        a: Пока пока
-
-    state: KnowledgeBase
-        intentGroup!: /KnowledgeBase
-        a: Нашёл ответ в базе знаний!
-        script: $faq.pushReplies();
-
-    state: NoMatch
-        event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
+    state: NewState_2

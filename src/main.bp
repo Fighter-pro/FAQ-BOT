@@ -1,0 +1,17 @@
+{
+  "positions" : [ {
+    "id" : "/Start",
+    "x" : 217,
+    "y" : 186
+  }, {
+    "id" : "/Step 1",
+    "name" : "NewState",
+    "x" : 608,
+    "y" : 218
+  }, {
+    "id" : "/NewState_2",
+    "name" : "NewState_2",
+    "x" : 1017,
+    "y" : 293
+  } ]
+}
